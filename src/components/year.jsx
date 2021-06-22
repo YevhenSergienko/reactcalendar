@@ -1,7 +1,18 @@
-function Year() {
-    return (
-      
-    );
+function Year(props) {
+  const prevClick = () => {
+      props.onYearChange(props.number - 1);
   }
-  
-  export default Year;
+  const nextClick = () => {
+      props.onYearChange(props.number + 1);
+  }
+ 
+  return (
+      <div className='year'>
+     <button onClick={prevClick}>{"<"}</button>
+     <div>{props.number}</div>
+     <button onClick={nextClick}>{">"}</button>
+      </div>
+  )
+};
+
+export default Year;

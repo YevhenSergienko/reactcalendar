@@ -1,7 +1,9 @@
-function Day() {
-    return (
-      
-    );
-  }
-  
-  export default Day;
+function Day(props) {
+  return (
+      <div className='date'>
+          {props.number}
+      </div>   
+  )
+}
+
+export default Day;

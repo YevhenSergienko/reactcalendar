@@ -4,15 +4,13 @@ import Month from "./month";
 import Day from "./day";
 import "../index.css"
 
-export default function App () {
+function App () {
   const [isYear, setYear] = React.useState(2021)
 
-  const prevYear = function() {
-    setYear(isYear - 1);
+  const  handleYearChange = function(yearNumber) {
+    setYear(yearNumber);
   }
-  const nextYear = function() {
-    setYear(isYear + 1);
-  }
+  
   const date = new Date(isYear, 10, 10);
   const month = date.toLocaleString('default', { month: 'long' });
 
@@ -20,8 +18,7 @@ export default function App () {
     <div className="app">
       <Year
       number={isYear}
-      onPrevClick={prevYear}
-      onNextClick={nextYear}
+      onYearChange={handleYearChange}
       />
       <Month
       number={month}
@@ -33,3 +30,4 @@ export default function App () {
   );
 }
 
+export default App;
