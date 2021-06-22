@@ -1,15 +1,35 @@
-import Year from './Year';
-import Month from './Month';
-import Day from './Day';
+import React from "react";
+import Year from "./year";
+import Month from "./month";
+import Day from "./day";
+import "../index.css"
 
-function App() {
+export default function App () {
+  const [isYear, setYear] = React.useState(2021)
+
+  const prevYear = function() {
+    setYear(isYear - 1);
+  }
+  const nextYear = function() {
+    setYear(isYear + 1);
+  }
+  const date = new Date(isYear, 10, 10);
+  const month = date.toLocaleString('default', { month: 'long' });
+
   return (
-    <App>
-      <Year/>
-      <Month number={1} />
-      <Day number={18}/>
-    </App>
+    <div className="app">
+      <Year
+      number={isYear}
+      onPrevClick={prevYear}
+      onNextClick={nextYear}
+      />
+      <Month
+      number={month}
+      />
+      <Day
+      number={10}
+      />
+    </div>
   );
 }
 
-export default App;
