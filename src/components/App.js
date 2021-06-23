@@ -5,26 +5,28 @@ import Day from "./day";
 import "../index.css"
 
 function App () {
-  const [isYear, setYear] = React.useState(2021)
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  const month = date.toLocaleString('default', { month: 'long' });
+  const day = date.getDate();
+  const [selectedYear, setYear] = React.useState(currentYear)
 
   const  handleYearChange = function(yearNumber) {
     setYear(yearNumber);
   }
   
-  const date = new Date(isYear, 10, 10);
-  const month = date.toLocaleString('default', { month: 'long' });
 
   return (
     <div className="app">
       <Year
-      number={isYear}
+      number={selectedYear}
       onYearChange={handleYearChange}
       />
       <Month
       number={month}
       />
       <Day
-      number={10}
+      number={day}
       />
     </div>
   );

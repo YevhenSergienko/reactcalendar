@@ -1,0 +1,19 @@
+.year {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 250px;
+    font-size: 30px;
+    font-weight: 700;
+
+    
+}
+
+.app button {
+    width: 60px;
+    height: 20px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    background-color: white;
+    font-weight: 700;
+}

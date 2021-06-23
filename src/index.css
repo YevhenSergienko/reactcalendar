@@ -11,38 +11,3 @@
   border: 1px solid gray;
   border-radius: 3px;
 }
-
-.year {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    width: 250px;
-    font-size: 30px;
-    font-weight: 700;
-
-    
-}
-
-.app button {
-  width: 60px;
-  height: 20px;
-  border: 1px solid grey;
-  border-radius: 3px;
-  background-color: white;
-}
-
-.month {
-  padding-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  text-transform: uppercase;
-  text-decoration: underline;
-  color: rgb(156, 4, 151);
-}
-
-.date {
-  padding-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  color:blue 
-}

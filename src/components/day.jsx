@@ -1,3 +1,5 @@
+import "./day.css"
+
 function Day(props) {
     return (
         <div className='date'>

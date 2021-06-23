@@ -1,3 +1,5 @@
+import "./year.css"
+
 function Year(props) {
     const prevClick = () => {
         props.onYearChange(props.number - 1);

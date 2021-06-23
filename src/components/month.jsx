@@ -1,3 +1,5 @@
+import "./month.css"
+
 function Month(props) {
     return (
         <div className='month'>
