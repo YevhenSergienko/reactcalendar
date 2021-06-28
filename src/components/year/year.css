@@ -1,0 +1,10 @@
+.year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    font-size: 25px;
+    margin: auto;
+    margin-bottom: 20px;
+    font-weight: 600;
+}

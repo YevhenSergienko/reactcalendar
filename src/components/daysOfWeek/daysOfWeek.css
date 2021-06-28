@@ -1,0 +1,10 @@
+.daysOfWeek {
+    display: flex;
+    width: 98%;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-inline-start: 0;
+    margin-block-end: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}

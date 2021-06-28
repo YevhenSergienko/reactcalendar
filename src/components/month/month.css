@@ -1,0 +1,48 @@
+
+.month{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius:3px
+}
+
+.month-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.month-list > div {
+    width: 21%;
+
+}
+.day-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.day-list > div {
+    width: 14%;
+}
+
+.not-current-month {
+    color: rgb(163, 163, 163);
+}
+
+.current-month {
+    font-weight: 600;
+}
+.monthName {
+    color: red;
+    font-weight: 600;
+    text-align: center;
+}
+.cell {
+    padding: 2px 0;
+    font-size: 12px;
+    text-align: center;
+}
