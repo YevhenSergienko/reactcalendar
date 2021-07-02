@@ -1,14 +1,13 @@
+import {createDaysOfWeek } from "../index"
 import "./daysOfWeek.css"
+
 export function DaysOfWeek() {
+  const days = createDaysOfWeek();
   return (
-    <ul className="daysOfWeek">
-      <li>Su</li>
-      <li>Mo</li>
-      <li>Tu</li>
-      <li>We</li>
-      <li>Th</li>
-      <li>Fr</li>
-      <li>Sa</li>
-    </ul>
+    <div className="daysOfWeek">
+      {days.map((day, index) => {
+        return <div key={index}>{day}</div>
+      })}
+    </div>
   );
 }

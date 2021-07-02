@@ -1,0 +1,9 @@
+.day-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.day-list > a {
+    width: 14%;
+    text-decoration: none;    
+}

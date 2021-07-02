@@ -1,0 +1,16 @@
+.today {
+    background: gray;
+    border: 2px solid red;
+    border-radius: 50%;
+    opacity: 80%;
+    color: white;
+}
+
+.not-current-month {
+    color: rgb(163, 163, 163);
+}
+
+.current-month {
+    font-weight: 600;
+    color: black;
+}

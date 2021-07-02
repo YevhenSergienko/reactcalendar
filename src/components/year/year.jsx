@@ -14,14 +14,14 @@ export function Year(props) {
     return (
     <div>
         <div className="year">
-        <button onClick={() => {onYearChange(year - 1)}}>prev</button>
+        <button onClick={() => {onYearChange(Number(year) - 1)}}>prev</button>
         <div>{year}</div>
-        <button onClick={() => {onYearChange(year + 1)}}>next</button>
+        <button onClick={() => {onYearChange(Number(year) + 1)}}>next</button>
         </div>
 
         <div className ="month-list">
         {months.map((month) => {
-            return  <Month year={year} key={month} month={month}></Month>
+            return  <Month year={Number(year)} key={month + 1} month={month + 1}></Month>
         })}
         </div>
     </div>
