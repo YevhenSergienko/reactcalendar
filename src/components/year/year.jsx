@@ -5,12 +5,13 @@ import "./year.css"
 export function Year(props) {
 
     const {year, onYearChange} = props;
+  
     const months = [];
 
     for (let i = 0; i < 12; i = i + 1) {
     months.push(i);
     }
-
+   
     return (
     <div>
         <div className="year">

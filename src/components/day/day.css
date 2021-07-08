@@ -14,3 +14,9 @@
     font-weight: 600;
     color: black;
 }
+
+.note {
+    border: 1px solid grey;
+    border-radius: 50%;
+    background-color: yellow;
+}

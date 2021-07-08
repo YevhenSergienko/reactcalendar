@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom"
-import { Day } from "../index"
-import "./dayList.css"
+import { Link } from "react-router-dom";
+import { Day } from "../index";
+import "./dayList.css";
 
 export function DayList({day, year, month}) {
     
@@ -35,15 +35,15 @@ export function DayList({day, year, month}) {
     
     return (
         <div className="day-list">
-            {days.arrDaysInPrevMonth.map((day) => {
+            {days.arrDaysInPrevMonth.map((day, index) => {
                 return (
-                <Link to={`/year/${year}/month/${month}/day/${day}`}>
+                <Link to={'/'}>
                     <Day year={year} month={month} day={day}></Day>
                 </Link>
                 );
             })}
 
-            {days.arrDaysInMonth.map((day) => {
+            {days.arrDaysInMonth.map((day, index) => {
                 return (
                 <Link to={`/year/${year}/month/${month}/day/${day}`}>
                     <Day position={"current"} year={year} month={month} day={day}></Day>
@@ -51,9 +51,9 @@ export function DayList({day, year, month}) {
                 );
             })}
 
-            {days.arrDaysInNextMonth.map((day) => {
+            {days.arrDaysInNextMonth.map((day, index) => {
                 return (
-                <Link to={`year/${year}/month/${month}/day/${day}`}>
+                <Link to={'/'}>
                     <Day year={year} month={month} day={day}></Day>
                 </Link>
                 );

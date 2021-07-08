@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Switch, Route, useHistory, Redirect,
 } from "react-router-dom";
-import { DayPage, Year, MonthPage } from '../index';
+import { DayPage, Year, MonthPage, NotesContext } from '../index';
 import './App.css';
 
 export function App() {
@@ -16,35 +16,51 @@ export function App() {
     history.push(`${monthNumber}`);
   };
 
+  const [notes, setNotes] = useState({});
+
+
+  useEffect(() => {
+    console.log('Load from the Local Storage');
+    setNotes({
+      "2021-07-05": "MyNotes"
+    })
+  }, [])
+
   return (
-    <div className="app">
-      <Switch>
+    <NotesContext.Provider value={notes}>
+      <div className="app">
+        <Switch>
 
-      <Route path="/year/:yearNumber/month/:monthNumber/day/:day" render={({match}) => (
-        <DayPage 
-        year={match.params.yearNumber}
-        month={match.params.monthNumber}
-        day={match.params.day}/>
-        )}/>
+        <Route path="/year/:yearNumber/month/:monthNumber/day/:day" render={({match}) => (
+          <DayPage 
+          year={match.params.yearNumber}
+          month={match.params.monthNumber}
+          day={match.params.day}/>
+          )}/>
 
-      <Route path="/year/:yearNumber/month/:monthNumber" render={({ match }) => (
-         <MonthPage
-          year={Number(match.params.yearNumber)} 
-          month={Number(match.params.monthNumber)} 
-          onMonthChange={handleMonthChange}/>
-        )}/>
-        
-        <Route path="/year/:yearNumber" render={(props) => (
-          <Year 
-          year={props.match.params.yearNumber} 
-          onYearChange={handleYearChange} />
-        )}/>
+        <Route path="/year/:yearNumber/month/:monthNumber" render={({ match }) => (
+          <MonthPage
+            year={Number(match.params.yearNumber)} 
+            month={Number(match.params.monthNumber)} 
+            onMonthChange={handleMonthChange}/>
+          )}/>
+          
+          <Route path="/year/:yearNumber" render={(props) => (
+            <Year 
+            year={props.match.params.yearNumber} 
+            onYearChange={handleYearChange} />
+          )}/>
 
-        <Route path="/">
-          <Redirect to={`/year/${new Date().getFullYear()}`}/>
-        </Route>
+          <Route path="/today">
+            <Redirect to={`/year/${new Date().getFullYear()}/month/${new Date().getMonth()}/day/${new Date().getDate()}`} />
+          </Route>
 
-      </Switch>
-    </div>
+          <Route path="/">
+            <Redirect to={`/year/${new Date().getFullYear()}`}/>
+          </Route>
+
+        </Switch>
+      </div>
+    </NotesContext.Provider>
   );
 }

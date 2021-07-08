@@ -1,8 +1,16 @@
+import { useContext } from "react";
+import { NotesContext } from "../index";
 import "./day.css";
 
 export function Day({position, year, month, day}) {
-  
+  const notes = useContext(NotesContext);
   const today = new Date();
+  
+  let note ='';
+  try {
+    const date = new Date (year, month - 1, day).toISOString().substring(0, 10);
+    note = notes[date];
+  } catch {}
   
   if(position === "current") {
     
@@ -12,6 +20,12 @@ export function Day({position, year, month, day}) {
       
         return (
         <div className={"cell today"}>{day}</div>
+      )
+    }
+    
+    if(note) {
+      return (
+        <div className={"cell note"}>{day}</div>
       )
     }
     
