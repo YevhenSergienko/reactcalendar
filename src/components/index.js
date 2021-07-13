@@ -6,6 +6,5 @@ export * from './day/day';
 export * from './daysOfWeek/daysOfWeek';
 export * from './dayPage/dayPage';
 export * from './dayList/dayList';
-export * from '../tools/daysName.tool';
+export * from '../tools/dayTools';
 export * from '../tools/notesProvider';
-export * from '../tools/storageManager'

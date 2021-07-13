@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NotesContext } from "../index";
 import "./day.css";
+import { getDateId } from "../../tools/dayTools"
 
 export function Day({position, year, month, day}) {
   const notes = useContext(NotesContext);
@@ -8,7 +9,7 @@ export function Day({position, year, month, day}) {
   
   let note ='';
   try {
-    const date = new Date (year, month - 1, day).toISOString().substring(0, 10);
+    const date = getDateId(year, month, day);
     note = notes[date];
   } catch {}
   

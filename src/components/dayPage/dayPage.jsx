@@ -1,14 +1,15 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NotesContext } from '../../tools/notesProvider';
-import { storage } from '../index';
+import { notesManager } from '../../model/notesManager';
+import { getDateId } from '../../tools/dayTools';
 import "./dayPage.css";
 
 export function DayPage(props) {
     const date = new Date(props.year, props.month - 1, props.day);
     const dateLabel = date.toLocaleDateString();
     const notes = useContext(NotesContext);
-    const note = notes[date.toISOString().substring(0, 10)];
+    const note = notes[getDateId(props.year, props.month, props.day)];
 
     const[memo, setMemo] = useState(note);
     
@@ -18,8 +19,9 @@ export function DayPage(props) {
     }
 
     function handleBtnClick() {
-      storage(date.toISOString().substring(0, 10), note);
-    }
+      const dateId = getDateId(props.year, props.month, props.day)
+      notesManager.updateNote(dateId, memo)
+       }
 
     return (
       <div>

@@ -3,6 +3,7 @@ import {
   Switch, Route, useHistory, Redirect,
 } from "react-router-dom";
 import { DayPage, Year, MonthPage, NotesContext } from '../index';
+import { notesManager } from '../../model/notesManager'
 import './App.css';
 
 export function App() {
@@ -21,9 +22,11 @@ export function App() {
 
   useEffect(() => {
     console.log('Load from the Local Storage');
-    setNotes({
-      "2021-07-05": "MyNotes"
+    
+    notesManager.addEventListener('update', () => {
+      setNotes(notesManager.notes);
     })
+    setNotes(notesManager.notes);
   }, [])
 
   return (
